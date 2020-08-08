@@ -721,7 +721,7 @@ define(['require', 'datetime', 'itemHelper', 'events', 'browser', 'imageLoader',
 
         var player = this;
         currentRuntimeTicks = playbackManager.duration(player);
-        updateTimeDisplay(playbackManager.currentTime(player), currentRuntimeTicks, playbackManager.getBufferedRanges(player));
+        updateTimeDisplay(playbackManager.currentTime(player) * 10000, currentRuntimeTicks, playbackManager.getBufferedRanges(player));
     }
 
     function releaseCurrentPlayer() {

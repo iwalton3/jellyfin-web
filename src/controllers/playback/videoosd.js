@@ -677,7 +677,8 @@ define(['playbackManager', 'dom', 'inputManager', 'datetime', 'itemHelper', 'med
                     lastUpdateTime = now;
                     var player = this;
                     currentRuntimeTicks = playbackManager.duration(player);
-                    var currentTime = playbackManager.currentTime(player);
+                    // This should actually be in ticks.
+                    var currentTime = playbackManager.currentTime(player) * 10000;
                     updateTimeDisplay(currentTime, currentRuntimeTicks, playbackManager.playbackStartTime(player), playbackManager.getBufferedRanges(player));
                     var item = currentItem;
                     refreshProgramInfoIfNeeded(player, item);
