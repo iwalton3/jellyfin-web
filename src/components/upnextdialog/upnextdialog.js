@@ -266,7 +266,7 @@ define(['dom', 'playbackManager', 'connectionManager', 'events', 'mediaInfo', 'l
             var runtimeTicks = playbackManager.duration(options.player);
 
             if (runtimeTicks) {
-                var timeRemainingTicks = runtimeTicks - playbackManager.currentTime(options.player);
+                var timeRemainingTicks = runtimeTicks - playbackManager.currentTime(options.player) * 10000;
 
                 return Math.round(timeRemainingTicks / 10000);
             }

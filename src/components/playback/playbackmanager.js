@@ -1702,12 +1702,7 @@ define(['events', 'datetime', 'appSettings', 'itemHelper', 'pluginManager', 'pla
 
             player = player || self._currentPlayer;
             if (player && !enableLocalPlaylistManagement(player)) {
-
-                if (player.isLocalPlayer) {
-                    return player.seek((ticks || 0) / 10000);
-                } else {
-                    return player.seek(ticks);
-                }
+                return player.seek(ticks);
             }
 
             changeStream(player, ticks);
@@ -1717,12 +1712,7 @@ define(['events', 'datetime', 'appSettings', 'itemHelper', 'pluginManager', 'pla
 
             player = player || self._currentPlayer;
             if (player && !enableLocalPlaylistManagement(player) && player.seekRelative) {
-
-                if (player.isLocalPlayer) {
-                    return player.seekRelative((ticks || 0) / 10000);
-                } else {
-                    return player.seekRelative(ticks);
-                }
+                return player.seekRelative(ticks);
             }
 
             var ticks = getCurrentTicks(player) + offsetTicks;
@@ -3492,7 +3482,7 @@ define(['events', 'datetime', 'appSettings', 'itemHelper', 'pluginManager', 'pla
             return player.currentTime();
         }
 
-        return this.getCurrentTicks(player);
+        return this.getCurrentTicks(player) / 10000;
     };
 
     PlaybackManager.prototype.nextItem = function (player) {

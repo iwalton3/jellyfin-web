@@ -599,7 +599,8 @@ define(['browser', 'datetime', 'backdrop', 'libraryBrowser', 'listView', 'imageL
                 lastUpdateTime = now;
                 var player = this;
                 currentRuntimeTicks = playbackManager.duration(player);
-                updateTimeDisplay(playbackManager.currentTime(player), currentRuntimeTicks);
+                // Should be in ticks.
+                updateTimeDisplay(playbackManager.currentTime(player) * 10000, currentRuntimeTicks);
             }
         }
 
