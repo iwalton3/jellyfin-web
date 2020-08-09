@@ -274,7 +274,6 @@ define(['require', 'datetime', 'itemHelper', 'events', 'browser', 'imageLoader',
                 nowPlayingBarElement = parentContainer.querySelector('.nowPlayingBar');
 
                 if (layoutManager.mobile) {
-                    hideButton(nowPlayingBarElement.querySelector('.btnShuffleQueue'));
                     hideButton(nowPlayingBarElement.querySelector('.nowPlayingBarCenter'));
                 }
 
